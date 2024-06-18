@@ -1,0 +1,9 @@
+fastapi
+pydantic
+uvicorn
+aiofiles
+python-dotenv
+motor[srv]
+pydantic_settings
+asyncio
+bcrypt==4.0.1
