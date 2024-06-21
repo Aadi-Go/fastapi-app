@@ -1,9 +1,10 @@
 from fastapi import APIRouter
-from DAO.database import add_user
+from dao.database import add_user
 from models.user_models import CreateUser
-from core import settings
+from core import get_settings
 
 router = APIRouter()
+settings = get_settings()
 
 
 @router.post("/register")

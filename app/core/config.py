@@ -1,9 +1,7 @@
 from pydantic_settings import BaseSettings
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordBearer
-import logging
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
+from functools import cache
 
 
 class Settings(BaseSettings):
@@ -18,6 +16,7 @@ class Settings(BaseSettings):
         env_file_encoding = 'utf-8'
         case_sensitive = True
 
-settings = Settings()
 
-logger.debug(settings.DB_URI)
+@cache
+def get_settings():
+    return Settings()

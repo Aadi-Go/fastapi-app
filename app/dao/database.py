@@ -1,6 +1,8 @@
 from pymongo.errors import OperationFailure
-from core import settings
+from core import get_settings
 import motor.motor_asyncio
+
+settings = get_settings()
 
 
 async def db_object():

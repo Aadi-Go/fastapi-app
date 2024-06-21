@@ -1,14 +1,15 @@
 from fastapi import APIRouter, Depends
 from typing import Annotated
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
-from DAO.database import get_user
+from dao.database import get_user
 from models.user_models import AuthToken
-from core import settings
+from core import get_settings
 import datetime
 from jose import jwt
 
 
 auth_router = APIRouter()
+settings = get_settings()
 
 
 @auth_router.post("/token", response_model=AuthToken)
